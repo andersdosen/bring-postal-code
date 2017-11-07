@@ -1,5 +1,5 @@
 # Bring Postal Code
-Look up the city of a postal code and put it into the city input field.
+You fill in the postal code, and this little script will return the city for you.
 
 ## Usage
 1. Add the class `bring-zip` to the zip input field
