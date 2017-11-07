@@ -27,11 +27,11 @@ gulp.task('watch', function(){
 gulp.task('js', function() {
 	gulp.src(bringJS)
 		.pipe(plumber(plumberErrorHandler))
-		.pipe(concat('bring-postal-code.js'))
-		.pipe(gulp.dest(folderDist))
 		.pipe(babel({
 			presets: ['env']
 		}))
+		.pipe(concat('bring-postal-code.js'))
+		.pipe(gulp.dest(folderDist))
 		.pipe(concat('bring-postal-code.min.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest(folderDist));

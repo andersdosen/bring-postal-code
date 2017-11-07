@@ -1,50 +1,45 @@
 'use strict';
 
 // Postal Code Lookup – https://developer.bring.com/api/postal-code/#lookup-postal-code
-const bringZipCodes = document.querySelectorAll('.bring-zip');
-const bringResultInputs = document.querySelectorAll('.bring-result');
-const bringClientURL = 'https://google.com/';
-let bringCount;
+
+var bringZipCodes = document.querySelectorAll('.bring-zip');
+var bringResultInputs = document.querySelectorAll('.bring-result');
+var bringClientURL = 'https://google.com/';
+var bringCount = void 0;
 
 if (bringZipCodes.length) {
-	for (bringCount = 0; bringZipCodes.length > bringCount; bringCount++) {
+	var _loop = function _loop() {
 
-		let bringZipInput = bringZipCodes[bringCount].querySelector('input');
-		let bringResultItem = bringResultInputs[bringCount];
-		let bringResultInput = bringResultItem.querySelector('input');
+		var bringZipInput = bringZipCodes[bringCount].querySelector('input');
+		var bringResultItem = bringResultInputs[bringCount];
+		var bringResultInput = bringResultItem.querySelector('input');
 
-		bringZipInput.addEventListener('keyup', function() {
+		bringZipInput.addEventListener('keyup', function () {
 
-			let bringZipValue = parseInt(this.value);
+			var bringZipValue = parseInt(this.value);
 
-			fetch('https://api.bring.com/shippingguide/api/postalCode.json?clientUrl=' + bringClientURL + '&pnr=' + bringZipValue)
-				.then(bringCheckStatus)
-				.then(bringGetJSON)
-				.then(function(data) {
-					if (data.valid === true) {
-						bringResultInput.value = data.result;
-					}
-					else {
-						bringResultInput.value = '';
-					}
-				})
-				.catch(function(err) {
-					console.log('ERROR', err);
-				});
-
+			fetch('https://api.bring.com/shippingguide/api/postalCode.json?clientUrl=' + bringClientURL + '&pnr=' + bringZipValue).then(bringCheckStatus).then(bringGetJSON).then(function (data) {
+				if (data.valid === true) {
+					bringResultInput.value = data.result;
+				} else {
+					bringResultInput.value = '';
+				}
+			}).catch(function (err) {
+				console.log('ERROR', err);
+			});
 		});
+	};
 
+	for (bringCount = 0; bringZipCodes.length > bringCount; bringCount++) {
+		_loop();
 	}
 }
 
 function bringCheckStatus(response) {
 	if (response.status === 200) {
 		return Promise.resolve(response);
-	}
-	else {
-		return Promise.reject(
-			new Error(response.statusText)
-		);
+	} else {
+		return Promise.reject(new Error(response.statusText));
 	}
 }
 
