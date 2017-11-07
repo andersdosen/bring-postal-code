@@ -7,4 +7,4 @@ Look up the city of a postal code and put it into the city input field.
 
 Made possible by the [Postal Code API by Bring](https://developer.bring.com/api/postal-code/)
 
-![Bring logo](logo-bring.svg "Bring logo")
+[![Bring logo](logo-bring.svg "Bring logo")](https://developer.bring.com/)
