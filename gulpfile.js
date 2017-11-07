@@ -2,6 +2,7 @@ var gulp = require ('gulp');
 var watch = require ('gulp-watch');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var saveLicense = require('uglify-save-license');
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
 var babel = require('gulp-babel');
@@ -33,7 +34,11 @@ gulp.task('js', function() {
 		.pipe(concat('bring-postal-code.js'))
 		.pipe(gulp.dest(folderDist))
 		.pipe(concat('bring-postal-code.min.js'))
-		.pipe(uglify())
+		.pipe(uglify({
+			output: {
+				comments: saveLicense
+			}
+		}))
 		.pipe(gulp.dest(folderDist));
 });
 
@@ -75,11 +80,6 @@ gulp.task('eslint', function() {
 				'asyncArrow': 'ignore'
 			}],
 			'space-in-parens': ['error', 'never'],
-			'spaced-comment': ['error', 'always', {
-				'block': {
-					'balanced': true
-				}
-			}],
 			'strict': ['error', 'global'],
 			'template-tag-spacing': ['error', 'always'],
 			'quotes': ['error', 'single', {

@@ -1,10 +1,14 @@
 {
   "name": "bring-postal-code",
-  "description": "Look up the city of a postal code and put it into the city input field.",
+  "description": "Look up cities by postal code through Bring's Postal Code API.",
   "version": "0.1.0",
+  "author": "Anders Døsen",
   "repository": {
     "type": "git",
-    "url": "https://github.com/appex/bring-postal-code"
+    "url": "https://github.com/andersdosen/bring-postal-code.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andersdosen/bring-postal-code/issues"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -17,8 +21,9 @@
     "gulp-eslint": "^4.0.0",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.0.1",
-    "gulp-uglify": "^1.2.0",
-    "gulp-watch": "^4.2.4"
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^4.2.4",
+    "uglify-save-license": "^0.4.1"
   },
   "license": "MIT"
 }
