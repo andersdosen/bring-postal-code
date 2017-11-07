@@ -1,3 +1,5 @@
+/**! Bring Postal Code v0.1.0 | MIT License | https://github.com/andersdosen/bring-postal-code | @andersdosen */
+
 'use strict';
 
 function bringPostalCode(bringArgs) {
