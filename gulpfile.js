@@ -40,7 +40,6 @@ gulp.task('js', function() {
 gulp.task('eslint', function() {
 	return gulp.src(bringJS).pipe(eslint({
 		'rules': {
-			'block-scoped-var': 'error',
 			'brace-style': ['error', 'stroustrup', {
 				'allowSingleLine': false
 			}],
