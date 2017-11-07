@@ -8,6 +8,7 @@ Look up the city of a postal code and put it into the city input field.
 
 ### Countries
 `bringPostalCode()` accepts the `country` parameter. The following countries are supported:
+
 Code | Country
 --- | ---
 NO | Norway _(Default)_
