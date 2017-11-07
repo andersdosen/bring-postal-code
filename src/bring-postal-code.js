@@ -1,6 +1,5 @@
 'use strict';
 
-// Postal Code Lookup – https://developer.bring.com/api/postal-code/#lookup-postal-code
 const bringZipCodes = document.querySelectorAll('.bring-zip');
 const bringResultInputs = document.querySelectorAll('.bring-result');
 const bringClientURL = 'https://google.com/';
