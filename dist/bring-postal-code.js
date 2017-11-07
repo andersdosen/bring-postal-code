@@ -2,15 +2,28 @@
 
 var bringZipCodes = document.querySelectorAll('.bring-zip');
 var bringResultInputs = document.querySelectorAll('.bring-result');
-var bringClientURL = 'https://google.com/';
+var bringClientURL = window.location.protocol + '//' + window.location.host + '/';
 var bringCount = void 0;
 
-if (bringZipCodes.length) {
+if (bringZipCodes.length && bringResultInputs.length) {
 	var _loop = function _loop() {
 
-		var bringZipInput = bringZipCodes[bringCount].querySelector('input');
-		var bringResultItem = bringResultInputs[bringCount];
-		var bringResultInput = bringResultItem.querySelector('input');
+		var bringZipType = bringZipCodes[bringCount].nodeName;
+		var bringResultType = bringResultInputs[bringCount].nodeName;
+		var bringZipInput = void 0;
+		var bringResultInput = void 0;
+
+		if (bringZipType === 'INPUT') {
+			bringZipInput = bringZipCodes[bringCount];
+		} else {
+			bringZipInput = bringZipCodes[bringCount].querySelector('input');
+		}
+
+		if (bringResultType === 'INPUT') {
+			bringResultInput = bringResultInputs[bringCount];
+		} else {
+			bringResultInput = bringResultInputs[bringCount].querySelector('input');
+		}
 
 		bringZipInput.addEventListener('keyup', function () {
 

@@ -2,15 +2,30 @@
 
 const bringZipCodes = document.querySelectorAll('.bring-zip');
 const bringResultInputs = document.querySelectorAll('.bring-result');
-const bringClientURL = 'https://google.com/';
+const bringClientURL = window.location.protocol + '//' + window.location.host + '/';
 let bringCount;
 
-if (bringZipCodes.length) {
+if (bringZipCodes.length && bringResultInputs.length) {
 	for (bringCount = 0; bringZipCodes.length > bringCount; bringCount++) {
 
-		let bringZipInput = bringZipCodes[bringCount].querySelector('input');
-		let bringResultItem = bringResultInputs[bringCount];
-		let bringResultInput = bringResultItem.querySelector('input');
+		let bringZipType = bringZipCodes[bringCount].nodeName;
+		let bringResultType = bringResultInputs[bringCount].nodeName;
+		let bringZipInput;
+		let bringResultInput;
+
+		if (bringZipType === 'INPUT') {
+			bringZipInput = bringZipCodes[bringCount];
+		}
+		else {
+			bringZipInput = bringZipCodes[bringCount].querySelector('input');
+		}
+
+		if (bringResultType === 'INPUT') {
+			bringResultInput = bringResultInputs[bringCount];
+		}
+		else {
+			bringResultInput = bringResultInputs[bringCount].querySelector('input');
+		}
 
 		bringZipInput.addEventListener('keyup', function() {
 
